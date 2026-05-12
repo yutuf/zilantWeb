@@ -372,39 +372,69 @@ const Sponsorship = () => {
           </a>
         </div>
 
-        {/* Branding Mockups Section */}
-        <div style={{ marginTop: '80px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <span className="sp-eyebrow">Visibility & Branding</span>
-            <h3 style={{ fontSize: '32px', fontWeight: '900', color: '#fff' }}>Marka Görünürlüğü</h3>
-            <p style={{ color: '#9ca3af', fontSize: '16px', marginTop: '12px' }}>
-              Logonuzun İHA gövdesinde ve takım formalarındaki stratejik yerleşimini inceleyin.
+        {/* Real Branding HUD Section */}
+        <div style={{ marginTop: '100px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <span className="sp-eyebrow">Strategic Visibility</span>
+            <h3 style={{ fontSize: '32px', fontWeight: '900', color: '#fff' }}>Teknik Marka Yerleşimi</h3>
+            <p style={{ color: '#9ca3af', fontSize: '16px', marginTop: '12px', maxWidth: '600px', margin: '12px auto 0' }}>
+              Ziron UAV ve resmi takım ekipmanları üzerindeki stratejik logo konumlandırma planımız.
             </p>
           </div>
 
-          <div className="grid grid-2" style={{ gap: '30px' }}>
-            <div className="card" style={{ padding: '20px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', aspectRatio: '16/9' }}>
-                <img src="/uav-mockup.png" alt="UAV Branding" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', bottom: '20px', left: '20px', background: 'rgba(0,0,0,0.8)', padding: '8px 16px', borderRadius: '8px', fontSize: '12px', fontWeight: '800', color: '#a855f7', border: '1px solid rgba(168,85,247,0.3)' }}>
-                  İHA GÖVDE YERLEŞİMİ
-                </div>
+          <div className="branding-hud-grid">
+            <style>{`
+              .branding-hud-grid {
+                display: grid;
+                grid-template-columns: 1.5fr 2fr 1fr;
+                gap: 24px;
+                align-items: stretch;
+              }
+              @media (max-width: 1024px) {
+                .branding-hud-grid { grid-template-columns: 1fr; }
+              }
+            `}</style>
+
+            {/* Jersey 1 (White) - FAR LEFT */}
+            <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '0', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+              <div style={{ position: 'relative', flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                <img src="/zilantforma1.png" alt="Jersey Front" style={{ width: '130%', height: 'auto', borderRadius: '0', objectFit: 'cover', transform: 'scale(1.4) translateY(5%)' }} />
+                <div style={{ position: 'absolute', top: '15px', right: '15px', padding: '5px 10px', background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '9px', color: '#fff', fontWeight: '800', zIndex: 5 }}>ÖN / OMUZ</div>
               </div>
-              <p style={{ color: '#6b7280', fontSize: '13px', marginTop: '16px', textAlign: 'center' }}>
-                Kanat üstü, kuyruk ve gövde yan panellerinde yüksek görünürlüklü marka alanları.
-              </p>
+              <div style={{ padding: '15px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.2)' }}>
+                <span style={{ fontSize: '11px', fontWeight: '900', color: '#9ca3af', letterSpacing: '0.1em' }}>JERSEY FRONT</span>
+              </div>
             </div>
 
-            <div className="card" style={{ padding: '20px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', aspectRatio: '16/9' }}>
-                <img src="/jersey-mockup.png" alt="Jersey Branding" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', bottom: '20px', left: '20px', background: 'rgba(0,0,0,0.8)', padding: '8px 16px', borderRadius: '8px', fontSize: '12px', fontWeight: '800', color: '#a855f7', border: '1px solid rgba(168,85,247,0.3)' }}>
-                  TAKIM FORMASI YERLEŞİMİ
+            {/* UAV HUD - CENTER */}
+            <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '30px', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div style={{ position: 'relative' }}>
+                <img src="/ziron-top-view.png" alt="Ziron UAV Top View" style={{ width: '100%', height: 'auto', filter: 'drop-shadow(0 0 30px rgba(168,85,247,0.15))' }} />
+                
+                {/* HUD Markers - UAV */}
+                <div style={{ position: 'absolute', top: '10%', left: '5%', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ width: '10px', height: '10px', borderRadius: '50%', border: '2px solid #a855f7' }}></div>
+                  <div style={{ padding: '3px 8px', background: 'rgba(168,85,247,0.1)', border: '1px solid #a855f7', color: '#fff', fontSize: '9px', fontWeight: '800', borderRadius: '4px' }}>KANAT</div>
+                </div>
+                <div style={{ position: 'absolute', top: '45%', left: '40%', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ width: '10px', height: '10px', borderRadius: '50%', border: '2px solid #3b82f6' }}></div>
+                  <div style={{ padding: '3px 8px', background: 'rgba(59,130,246,0.1)', border: '1px solid #3b82f6', color: '#fff', fontSize: '9px', fontWeight: '800', borderRadius: '4px' }}>GÖVDE</div>
                 </div>
               </div>
-              <p style={{ color: '#6b7280', fontSize: '13px', marginTop: '16px', textAlign: 'center' }}>
-                Göğüs, omuz ve sırt bölgelerinde prestijli logo konumlandırması.
-              </p>
+              <div style={{ marginTop: '20px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '15px' }}>
+                <span style={{ fontSize: '11px', fontWeight: '900', color: '#a855f7', letterSpacing: '0.1em' }}>UAV BRANDING</span>
+              </div>
+            </div>
+
+            {/* Jersey 2 (Purple) - FAR RIGHT */}
+            <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '15px', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ position: 'relative', flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <img src="/zilantforma2.png" alt="Jersey Back" style={{ width: '100%', height: 'auto', borderRadius: '15px', objectFit: 'contain' }} />
+                <div style={{ position: 'absolute', top: '15px', right: '15px', padding: '5px 10px', background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '9px', color: '#fff', fontWeight: '800' }}>SIRT / YAN</div>
+              </div>
+              <div style={{ marginTop: '15px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '10px' }}>
+                <span style={{ fontSize: '11px', fontWeight: '900', color: '#9ca3af', letterSpacing: '0.1em' }}>JERSEY BACK</span>
+              </div>
             </div>
           </div>
         </div>
