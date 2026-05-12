@@ -421,22 +421,33 @@ const Sponsorship = () => {
             </div>
 
             {/* UAV HUD - CENTER */}
-            <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '30px', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div style={{ position: 'relative' }}>
+            <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '0', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+              <div style={{ position: 'relative', flexGrow: 1, padding: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <img src="/ziron-top-view.png" alt="Ziron UAV Top View" style={{ width: '100%', height: 'auto', filter: 'drop-shadow(0 0 30px rgba(168,85,247,0.15))' }} />
                 
-                {/* HUD Markers - UAV */}
-                <div style={{ position: 'absolute', top: '10%', left: '5%', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <div className="hud-ping" style={{ width: '10px', height: '10px', borderRadius: '50%', border: '2px solid #a855f7' }}></div>
-                  <div style={{ padding: '3px 8px', background: 'rgba(168,85,247,0.1)', border: '1px solid #a855f7', color: '#fff', fontSize: '9px', fontWeight: '800', borderRadius: '4px' }}>KANAT</div>
-                </div>
-                <div style={{ position: 'absolute', top: '45%', left: '40%', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <div className="hud-ping" style={{ width: '10px', height: '10px', borderRadius: '50%', border: '2px solid #3b82f6' }}></div>
-                  <div style={{ padding: '3px 8px', background: 'rgba(59,130,246,0.1)', border: '1px solid #3b82f6', color: '#fff', fontSize: '9px', fontWeight: '800', borderRadius: '4px' }}>GÖVDE</div>
-                </div>
+                <div style={{ position: 'absolute', top: '20px', left: '50%', transform: 'translateX(-50%)', padding: '5px 15px', background: 'rgba(168,85,247,0.1)', border: '1px solid #a855f7', borderRadius: '20px', fontSize: '10px', color: '#fff', fontWeight: '800', letterSpacing: '0.1em' }}>ZIRON V2 PLATFORM</div>
               </div>
-              <div style={{ marginTop: '20px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '15px' }}>
-                <span style={{ fontSize: '11px', fontWeight: '900', color: '#a855f7', letterSpacing: '0.1em' }}>UAV BRANDING</span>
+
+              <div style={{ padding: '20px', background: 'rgba(168,85,247,0.05)', borderTop: '1px solid rgba(168,85,247,0.2)' }}>
+                <div style={{ fontSize: '10px', fontWeight: '900', color: '#a855f7', letterSpacing: '0.15em', marginBottom: '12px', textAlign: 'center' }}>UAV BRANDING ZONES</div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', background: '#a855f7' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[01] KANAT ÜST YÜZEY</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', border: '1px solid #a855f7' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[02] GÖVDE YAN PANEL</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', border: '1px solid #a855f7' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[03] KUYRUK / STABİLİZER</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', background: '#fff' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[04] BURUN / AVİYONİK</span>
+                  </div>
+                </div>
               </div>
             </div>
 
