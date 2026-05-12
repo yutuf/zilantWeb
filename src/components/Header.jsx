@@ -39,7 +39,7 @@ const Header = () => {
           display: flex; align-items: center; gap: 12px; text-decoration: none;
         }
         .header-logo-img {
-          height: 48px; 
+          height: 72px; 
           width: auto;
           object-fit: contain;
           transition: transform 0.3s ease, filter 0.3s ease;

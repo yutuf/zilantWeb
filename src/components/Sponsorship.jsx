@@ -339,7 +339,7 @@ const Sponsorship = () => {
           <div className="mosaic-grid">
             {/* Filled Slot */}
             <div className="mosaic-slot" style={{ background: 'rgba(168,85,247,0.05)', borderColor: 'rgba(168,85,247,0.2)' }}>
-              <img src="/zilant-logo-color.png" alt="Zilant" style={{ width: '92%', height: '92%', objectFit: 'contain' }} />
+              <img src="/zilant-logo-color.png" alt="Zilant" style={{ width: '98%', height: '98%', objectFit: 'contain' }} />
               <div className="slot-glow" style={{ opacity: 1 }}></div>
             </div>
 
