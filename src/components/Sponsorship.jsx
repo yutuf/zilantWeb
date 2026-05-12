@@ -197,6 +197,11 @@ const Sponsorship = () => {
           gap: 16px;
           margin-top: 60px;
         }
+        @media (max-width: 768px) {
+          .mosaic-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+          .collab-strip-premium { padding: 30px; flex-direction: column; text-align: center; }
+          .mosaic-container { padding: 40px 20px; }
+        }
         .mosaic-slot {
           aspect-ratio: 16/9;
           background: rgba(255,255,255,0.01);

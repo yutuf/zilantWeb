@@ -110,6 +110,29 @@ const Technology = () => {
 
         .inv-sidebar { display: flex; flex-direction: column; border-right: 1px solid rgba(168,85,247,0.15); background: #08080a; }
         
+        @media (max-width: 768px) {
+          .inv-grid { grid-template-columns: 1fr; }
+          .inv-sidebar { 
+            flex-direction: row; 
+            overflow-x: auto; 
+            border-right: none; 
+            border-bottom: 1px solid rgba(168,85,247,0.15);
+            -webkit-overflow-scrolling: touch;
+          }
+          .inv-sidebar::-webkit-scrollbar { display: none; }
+          .inv-sidebar-btn { 
+            padding: 15px 20px; 
+            white-space: nowrap; 
+            flex-shrink: 0;
+            border-bottom: none;
+            border-right: 1px solid rgba(255,255,255,0.02);
+          }
+          .inv-sidebar-btn.active::after { width: 100%; height: 3px; top: auto; bottom: 0; }
+          .inv-panel { padding: 30px 20px; min-height: auto; }
+          .inv-item-name { font-size: 24px; }
+          .panel-watermark { font-size: 60px; bottom: 20px; right: 20px; }
+        }
+        
         .inv-sidebar-btn {
           padding: 26px 30px; border: none; background: transparent; color: #4b5563;
           font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-align: left;
@@ -119,7 +142,7 @@ const Technology = () => {
         }
         .inv-sidebar-btn::after {
           content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 0;
-          background: currentColor; opacity: 0.1; transition: width 0.3s ease;
+          background: currentColor; opacity: 0.1; transition: all 0.3s ease;
         }
         .inv-sidebar-btn:hover { color: #fff; background: rgba(255,255,255,0.02); }
         .inv-sidebar-btn.active { color: #fff; background: rgba(168,85,247,0.08); }

@@ -181,20 +181,17 @@ const Hero = () => {
           <div className="hero-text-side">
             <div className="hero-badge">
               <span className="hero-badge-dot" />
-              Teknofest 2026 Sezonu · Sabit Kanat Finalisti
+              Baykar Fen Lisesi Ar-Ge Takımı
             </div>
 
             <h1 style={{ fontSize: 'clamp(2.4rem,5vw,4.5rem)', lineHeight: 1.05, marginBottom: '24px', fontWeight: 800 }}>
-              <span style={{ color: 'transparent', WebkitTextStroke: '1px rgba(240,240,240,.35)' }}>Gökyüzünü</span><br />
-              <span style={{ color: 'transparent', WebkitTextStroke: '1px rgba(240,240,240,.35)' }}>Mühendislikle</span><br />
-              <span style={{ color: '#a855f7' }}>Yeniden Yaz.</span>
+              <span style={{ color: 'transparent', WebkitTextStroke: '1px rgba(240,240,240,.35)' }}>BFL</span> <span style={{ color: '#a855f7' }}>Zilant UAV</span><br />
+              <span style={{ color: 'transparent', WebkitTextStroke: '1px rgba(240,240,240,.35)' }}>Geleceği</span><br />
+              <span style={{ color: '#fff' }}>Otonom İnşa Et.</span>
             </h1>
 
             <p style={{ fontSize: 'clamp(.95rem,1.8vw,1.15rem)', color: '#9ca3af', maxWidth: '520px', lineHeight: 1.75 }}>
-              Baykar Fen Lisesi bünyesinde yetişen{' '}
-              <strong style={{ color: '#e5e7eb' }}>Zilant UAV Team</strong> —
-              Türk-Tatar mitolojisinin Kanatlı Yılanı'ndan ilhamla,
-              Ar-Ge disiplinini ve gökyüzü hızını tek bir platformda birleştiriyor.
+              Türkiye'nin öncü eğitim kurumu <strong style={{ color: '#a855f7' }}>Baykar Fen Lisesi</strong> bünyesinde, havacılık tutkusu ve mühendislik disipliniyle yetişen genç zihinler. Zilant Team, gökyüzünde otonom geleceği tasarlıyor.
             </p>
 
             <div className="hero-cta-group">

@@ -37,6 +37,11 @@ const About = () => {
           display: flex; gap: 40px; margin-top: 50px;
           padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05);
         }
+        @media (max-width: 768px) {
+          .about-card-premium { padding: 40px 24px; }
+          .about-stat-group { gap: 20px; flex-wrap: wrap; }
+          .about-stat-item h4 { font-size: 22px; }
+        }
         .about-stat-item h4 { font-size: 28px; font-weight: 900; color: #a855f7; margin-bottom: 4px; }
         .about-stat-item p { font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em; }
         
@@ -65,7 +70,7 @@ const About = () => {
               </h2>
               
               <p style={{ fontSize: '18px', color: '#e5e7eb', lineHeight: '1.7', marginBottom: '24px' }}>
-                Otonom teknoloji çözümleri üreten <strong style={{ color: '#a855f7' }}>9 kişilik disiplinli bir mühendislik kolektifiyiz.</strong>
+                Türkiye'nin en başarılı gençlerini bir araya getiren <strong style={{ color: '#a855f7' }}>Baykar Fen Lisesi</strong> bünyesinde, otonom teknoloji çözümleri üreten disiplinli bir mühendislik kolektifiyiz.
               </p>
               
               <div style={{ display: 'grid', gap: '20px' }}>

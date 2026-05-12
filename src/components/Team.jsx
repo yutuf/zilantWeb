@@ -94,6 +94,11 @@ const Team = () => {
         .member-info {
           flex-grow: 1;
         }
+        @media (max-width: 600px) {
+          .member-card { flex-direction: column; text-align: center; gap: 20px; padding: 30px 20px; }
+          .member-avatar-wrap { margin: 0 auto; }
+          .member-name { font-size: 18px; }
+        }
         .member-name {
           font-size: 20px;
           font-weight: 800;

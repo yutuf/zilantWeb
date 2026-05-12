@@ -44,6 +44,11 @@ const Header = () => {
           object-fit: contain;
           transition: transform 0.3s ease, filter 0.3s ease;
         }
+        @media (max-width: 768px) {
+          .header-logo-img { height: 48px; }
+          .header-logo-name { font-size: 1rem !important; }
+          .header-logo-sub { font-size: 0.5rem !important; }
+        }
         .header-logo:hover .header-logo-img {
           transform: scale(1.05);
           filter: drop-shadow(0 0 12px rgba(168,85,247,0.4));
@@ -57,9 +62,9 @@ const Header = () => {
         }
         .header-logo-name span { color: #a855f7; }
         .header-logo-sub {
-          font-size: 0.6rem; color: #9ca3af; letter-spacing: 0.15em;
+          font-size: 0.65rem; color: #a855f7; letter-spacing: 0.15em;
           text-transform: uppercase; line-height: 1.2;
-          margin-top: 2px;
+          margin-top: 2px; font-weight: 700;
         }
         .header-nav {
           display: none; gap: 2rem; align-items: center;
