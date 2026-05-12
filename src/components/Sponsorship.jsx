@@ -1,374 +1,363 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+const WA_NUMBER = "905516499710";
+const MAIL = "zilantec@gmail.com";
+
+const waLink = (pkg) =>
+  `https://wa.me/${WA_NUMBER}?text=Merhaba%2C%20Zilant%20UAV%20Team'in%20%22${encodeURIComponent(pkg)}%22%20modeline%20destek%20vermek%20istiyorum.`;
+
+const packages = [
+  {
+    id: "mikro",
+    tier: "TOPLULUK · MİKRO",
+    name: "Dostluk Desteği",
+    price: "₺1.000+",
+    note: "Bireysel / Esnaf",
+    desc: "Zilant ekosisteminin bir parçası olun. İsminiz bu teknoloji yolculuğunda dijital olarak ölümsüzleşsin.",
+    highlight: false,
+    badge: "İnananlar",
+    color: "#9ca3af",
+    model: "🤝",
+    perks: [
+      "İnananlar Mozaiği'nde kalıcı isim",
+      "Dijital Teşekkür Sertifikası",
+      "Instagram toplu teşekkür listesi",
+    ],
+  },
+  {
+    id: "dostlar",
+    tier: "GELİŞTİRİCİ · BRONZ",
+    name: "Saha Ortağı",
+    price: "₺10.000",
+    note: "Üretim & Atölye",
+    desc: "Üretim sürecimize güç katın. Logonuz formamızda ve web sitemizde kalıcı yer alsın.",
+    highlight: true,
+    badge: "En Popüler",
+    color: "#a855f7",
+    model: "⚙️",
+    perks: [
+      "Forma sırtında isim/logo",
+      "Web sitesinde kurumsal profil",
+      "Instagram özel teşekkür story'si",
+      "Ekip bültenlerine abonelik",
+    ],
+  },
+  {
+    id: "sistem",
+    tier: "SİSTEM · ALTIN",
+    name: "Sistem Ortağı",
+    price: "₺35.000",
+    note: "Ana Teknik Destekçi",
+    desc: "Markanızı uçağın kalbine yerleştirin. Tüm aviyonik ve teknik raporlarda imzanız olsun.",
+    highlight: false,
+    badge: "Prestij",
+    color: "#3b82f6",
+    model: "✈️",
+    perks: [
+      "Fuselage yan panel ana logo",
+      "Forma ön yüz (göğüs) logo",
+      "Teknik raporlarda marka bahsi",
+      "Sektörel rakip engelleme taahhüdü",
+    ],
+  },
+  {
+    id: "kurucu",
+    tier: "STRATEJİK · PLATİN",
+    name: "Kurucu Ortak",
+    price: "₺90.000",
+    note: "Limitli Tek Hak",
+    desc: "Vizyonumuzun en büyük ortağı. İHA'nın ismi ve ruhu markanızla sonsuza dek birleşsin.",
+    highlight: false,
+    badge: "Maksimum Yetki",
+    color: "#fbbf24",
+    model: "👑",
+    perks: [
+      "İHA ismine marka entegrasyonu",
+      "Kanat üstü dev format ana logo",
+      "Yarışma sonrası karbon gövde mülkiyeti",
+      "Tüm mecralarda 'Baş Sponsor' statüsü",
+    ],
+  },
+];
 
 const Sponsorship = () => {
-  const mainPackages = [
-    {
-      name: "Kurucu Ortak",
-      type: "STRATEJİK İŞ BİRLİĞİ",
-      price: "₺85.000",
-      description: "Ekibin gelişimine en büyük katkıyı sağlayan kurumsal çözüm ortaklığı. Teknik ve operasyonel derinlikte iş birliği.",
-      badge: "badge-premium",
-      features: [
-        "Yarışma sonrası prototip İHA gövdesinin firmaya teslimi (sergileme amaçlı)",
-        "İHA gövdesi üzerinde (Fuselage) özel logo yerleşimi",
-        "Ekip formalarında arka panel logo yerleşimi",
-        "Web sitesinde 'Kurucu Ortak' statüsü ve logo yerleşimi",
-        "Sektörel rakip engelleme taahhüdü",
-        "Aylık Teknik İlerleme Raporu ve Yönetici Brifingleri"
-      ],
-      cta: "İş Birliği Sürecini Başlat",
-      highlight: true
-    },
-    {
-      name: "Gökyüzü Ortağı",
-      type: "ANA DESTEKÇİ",
-      price: "₺50.000",
-      description: "Gövde ve web sitesi üzerinde güçlü görünürlük. Sosyal medya süreçlerinde teknik entegrasyon.",
-      badge: "badge-gold",
-      features: [
-        "Fuselage üzerinde standart logo yerleşimi",
-        "Ekip formalarında arka panel logo yerleşimi",
-        "Web sitesinde 'Ana Sponsorlar' arasında yerleşim",
-        "4 bölümden oluşan 'Mühendislik Günlükleri' video serisi",
-        "Sosyal medya teknik içeriklerinde marka görünürlüğü"
-      ],
-      cta: "Destek Süreci Başlat",
-      highlight: false
-    }
-  ];
-
-  const systemPackages = [
-    {
-      name: "Sistem Ortağı",
-      price: "₺20.000",
-      target: "Aviyonik · Güç · Yazılım",
-      features: ["Kanat logoları", "3 bölüm sistem tanıtım serisi", "Teknik spotlight postları"],
-      badge: "badge-system"
-    },
-    {
-      name: "Parça Ortağı",
-      price: "₺3.000 – ₺15.000",
-      target: "Donanım / BOM",
-      features: ["Kutu açılış videoları", "Web sitesi teknik parça sayfası", "Instagram story entegrasyonu"],
-      badge: "badge-part"
-    }
-  ];
-
-  const supportPackages = [
-    { name: "Hizmet Ortağı", price: "Ayni Destek", desc: "Lojistik, Baskı, Yazılım, Atölye" },
-    { name: "Mikro Destek", price: "₺1.500", desc: "Bireysel ve KOBİ Destekleri" }
-  ];
-
   return (
-    <section id="sponsor" className="sponsorship-container section">
+    <section id="sponsor" style={{ background: '#080808', padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
       <style>{`
-        .sponsorship-container {
-          background-color: #0a0a0c;
-          color: #f8f9fa;
-          padding: 100px 0;
-          font-family: 'Inter', system-ui, sans-serif;
-        }
+        .sp-container { max-width: 1320px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 10; }
         
-        .section-header {
-          max-width: 800px;
-          margin: 0 auto 80px;
-          text-align: center;
+        @keyframes borderFlow {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
-        
-        .eyebrow {
-          color: var(--color-accent-purple);
-          font-weight: 700;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          font-size: 13px;
-          margin-bottom: 16px;
-          display: block;
+        @keyframes glowPulse {
+          0%, 100% { box-shadow: 0 0 20px rgba(168,85,247,0.1); }
+          50% { box-shadow: 0 0 40px rgba(168,85,247,0.3); }
         }
-        
-        .main-title {
-          font-size: clamp(2.5rem, 5vw, 3.5rem);
-          font-weight: 800;
-          line-height: 1.1;
-          margin-bottom: 24px;
-          background: linear-gradient(135deg, #fff 0%, #a855f7 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-        
-        .lead-text {
-          font-size: 18px;
-          color: #9ca3af;
-          line-height: 1.6;
+        @keyframes subtleFloating {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
         }
 
-        /* Hero Cards */
-        .premium-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-          gap: 30px;
-          margin-bottom: 60px;
+        .sp-pattern-bg {
+          position: absolute; inset: 0; z-index: 1;
+          background-image: url('/zilant-pattern.png');
+          background-size: 600px;
+          opacity: 0.03;
+          mix-blend-mode: screen;
+          pointer-events: none;
+        }
+
+        .sp-header { text-align: center; margin-bottom: 80px; }
+        .sp-eyebrow { color: #a855f7; font-size: 13px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 20px; display: block; }
+        .sp-title { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 900; color: #fff; line-height: 1.1; letter-spacing: -0.02em; }
+        
+        .sp-grid { 
+          display: grid; 
+          grid-template-columns: repeat(4, 1fr); 
+          gap: 20px; 
+        }
+        @media (max-width: 1200px) { .sp-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .sp-grid { grid-template-columns: 1fr; } }
+        
+        .sp-card { 
+          background: #0d0d0f; border: 1px solid rgba(255,255,255,0.05); 
+          border-radius: 28px; padding: 32px; position: relative; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          display: flex; flex-direction: column; height: 100%;
+        }
+
+        .card-mikro { border-color: rgba(156,163,175,0.2); }
+        .card-dostlar { 
+          border-color: rgba(168,85,247,0.4); 
+          background: linear-gradient(145deg, #0d0d0f 0%, #150b1d 100%);
+        }
+        .card-sistem { border-color: rgba(59,130,246,0.3); }
+        .card-kurucu { 
+          border: 2px solid transparent;
+          background: linear-gradient(#0d0d0f, #0d0d0f) padding-box,
+                      linear-gradient(90deg, #fbbf24, #ef4444, #fbbf24) border-box;
+          background-size: 200% auto;
+          animation: borderFlow 4s linear infinite;
+        }
+
+        .sp-card:hover { transform: translateY(-12px); box-shadow: 0 30px 60px rgba(0,0,0,0.6); z-index: 10; }
+
+        .pkg-badge { 
+          position: absolute; top: -12px; left: 32px; 
+          padding: 6px 14px; border-radius: 100px; font-size: 10px; font-weight: 900; 
+          color: #fff; z-index: 5; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+          text-transform: uppercase;
+        }
+
+        .pkg-price-wrap { margin-bottom: 20px; }
+        .pkg-price-val { font-size: 34px; font-weight: 950; color: #fff; letter-spacing: -0.03em; }
+        .pkg-price-unit { font-size: 13px; color: #6b7280; font-weight: 600; margin-left: 4px; }
+
+        .pkg-perk-list { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 12px; flex-grow: 1; }
+        .pkg-perk-item { display: flex; gap: 10px; font-size: 13px; color: #d1d5db; line-height: 1.4; }
+        .pkg-perk-item svg { flex-shrink: 0; margin-top: 2px; }
+
+        .pkg-action-btn {
+          width: 100%; padding: 15px; border-radius: 14px; font-weight: 800; font-size: 14px;
+          text-align: center; text-decoration: none; transition: all 0.3s ease;
+          display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+
+        .visual-model {
+          height: 100px; width: 100%; border-radius: 14px; margin-bottom: 24px;
+          background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+          display: flex; align-items: center; justify-content: center; position: relative;
+          overflow: hidden;
+        }
+        .model-inner { opacity: 0.15; filter: grayscale(1); transition: all 0.4s ease; transform: scale(0.9); }
+        .sp-card:hover .model-inner { opacity: 1; filter: grayscale(0); transform: scale(1.2); }
+
+        .collab-strip-premium {
+          margin-top: 60px; padding: 48px; border-radius: 30px;
+          background: linear-gradient(90deg, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.12) 100%);
+          border: 1px solid rgba(168,85,247,0.3);
+          display: flex; align-items: center; justify-content: space-between; gap: 40px;
+          position: relative; overflow: hidden;
+          animation: glowPulse 4s infinite ease-in-out;
         }
         
-        .hero-card {
-          background: rgba(20, 20, 25, 0.6);
-          border: 1px solid rgba(168, 85, 247, 0.2);
-          border-radius: 24px;
-          padding: 48px;
-          backdrop-filter: blur(20px);
+        /* Mosaic Styling */
+        .mosaic-container {
+          margin-top: 120px;
+          padding: 80px 40px;
+          background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+          border-radius: 40px;
+          border: 1px solid rgba(255,255,255,0.05);
+          position: relative;
+        }
+        .mosaic-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 16px;
+          margin-top: 60px;
+        }
+        .mosaic-slot {
+          aspect-ratio: 16/9;
+          background: rgba(255,255,255,0.01);
+          border: 1px solid rgba(255,255,255,0.04);
+          border-radius: 16px;
           display: flex;
           flex-direction: column;
-          position: relative;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .hero-card:hover {
-          border-color: var(--color-accent-purple);
-          transform: translateY(-8px);
-          box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(168, 85, 247, 0.1);
-        }
-        
-        .hero-card.highlight {
-          background: linear-gradient(180deg, rgba(168, 85, 247, 0.05) 0%, rgba(10, 10, 12, 0) 100%);
-          border: 1px solid rgba(168, 85, 247, 0.4);
-        }
-        
-        .type-badge {
-          font-size: 12px;
-          font-weight: 700;
-          color: var(--color-accent-purple);
-          letter-spacing: 0.1em;
-          margin-bottom: 12px;
-        }
-        
-        .package-name {
-          font-size: 32px;
-          font-weight: 700;
-          margin-bottom: 12px;
-        }
-        
-        .package-price {
-          font-size: 40px;
-          font-weight: 800;
-          margin-bottom: 24px;
-          display: flex;
-          align-items: baseline;
-          gap: 8px;
-        }
-        
-        .package-price span {
-          font-size: 14px;
-          color: #6b7280;
-          font-weight: 400;
-        }
-        
-        .package-desc {
-          color: #9ca3af;
-          font-size: 15px;
-          margin-bottom: 32px;
-          min-height: 45px;
-        }
-        
-        .feature-group {
-          margin-bottom: 40px;
-          flex-grow: 1;
-        }
-        
-        .feature-item {
-          display: flex;
-          gap: 12px;
-          margin-bottom: 16px;
-          font-size: 15px;
-          color: #d1d5db;
-        }
-        
-        .check-icon {
-          color: var(--color-accent-purple);
-          flex-shrink: 0;
-          margin-top: 2px;
-        }
-        
-        .cta-button {
-          background: #f8f9fa;
-          color: #0a0a0c;
-          text-align: center;
-          padding: 18px;
-          border-radius: 12px;
-          font-weight: 700;
-          text-decoration: none;
-          transition: all 0.3s ease;
-        }
-        
-        .hero-card.highlight .cta-button {
-          background: var(--color-accent-purple);
-          color: #fff;
-        }
-        
-        .cta-button:hover {
-          transform: scale(1.02);
-          opacity: 0.9;
-        }
-
-        /* Secondary Grid */
-        .secondary-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 20px;
-          margin-bottom: 60px;
-        }
-        
-        .system-card {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 16px;
-          padding: 32px;
-          transition: all 0.3s ease;
-        }
-        
-        .system-card:hover {
-          background: rgba(255, 255, 255, 0.05);
-          border-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .system-title {
-          font-size: 20px;
-          font-weight: 700;
-          margin-bottom: 8px;
-        }
-        
-        .system-price {
-          font-size: 24px;
-          font-weight: 800;
-          color: var(--color-accent-purple);
-          margin-bottom: 16px;
-        }
-        
-        .target-label {
-          font-size: 12px;
-          background: rgba(255,255,255,0.1);
-          padding: 4px 10px;
-          border-radius: 4px;
-          color: #9ca3af;
-          margin-bottom: 20px;
-          display: inline-block;
-        }
-
-        /* Footer Bar */
-        .corporate-contact {
-          background: linear-gradient(90deg, #111 0%, #1a1a1f 100%);
-          border-radius: 20px;
-          padding: 40px;
-          display: flex;
           align-items: center;
-          justify-content: space-between;
-          border: 1px solid rgba(255, 255, 255, 0.05);
+          justify-content: center;
+          gap: 10px;
+          transition: all 0.4s ease;
+          position: relative;
+          cursor: pointer;
+          overflow: hidden;
         }
-        
-        .contact-info h4 {
-          font-size: 22px;
-          margin-bottom: 8px;
+        .mosaic-slot:hover {
+          background: rgba(168,85,247,0.05);
+          border-color: rgba(168,85,247,0.4);
+          transform: translateY(-5px);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
-        
-        .contact-info p {
-          color: #6b7280;
+        .mosaic-slot.empty::before {
+          content: 'RESERVED';
+          position: absolute;
+          top: 10px; left: 10px;
+          font-size: 8px;
+          font-weight: 900;
+          color: rgba(255,255,255,0.1);
+          letter-spacing: 0.1em;
         }
-        
-        .inquiry-btn {
-          border: 1px solid #333;
-          padding: 14px 32px;
-          border-radius: 10px;
+        .slot-plus {
+          font-size: 20px;
+          color: #333;
+          transition: all 0.4s ease;
+        }
+        .mosaic-slot:hover .slot-plus {
+          color: #a855f7;
+          transform: rotate(90deg);
+        }
+        .slot-text {
+          font-size: 10px;
+          font-weight: 800;
+          color: #333;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          transition: all 0.4s ease;
+        }
+        .mosaic-slot:hover .slot-text {
           color: #fff;
-          font-weight: 600;
-          text-decoration: none;
-          transition: all 0.3s ease;
         }
-        
-        .inquiry-btn:hover {
-          background: #fff;
-          color: #000;
+        .slot-glow {
+          position: absolute;
+          width: 100px; height: 100px;
+          background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%);
+          top: -50px; right: -50px;
+          opacity: 0; transition: opacity 0.4s ease;
         }
-
-        @media (max-width: 768px) {
-          .premium-grid { grid-template-columns: 1fr; }
-          .hero-card { padding: 32px; }
-          .corporate-contact { flex-direction: column; text-align: center; gap: 30px; }
-        }
+        .mosaic-slot:hover .slot-glow { opacity: 1; }
       `}</style>
 
-      <div className="container">
-        <div className="section-header">
-          <span className="eyebrow">Engineering Partnership 2026</span>
-          <h1 className="main-title">Stratejik Mühendislik Ortaklığı</h1>
-          <p className="lead-text">
-            Teknofest 2026 yolculuğumuzda, teknik gelişimimize katkı sağlayacak ve 
-            mühendislik disiplinimizi destekleyecek kurumlarla uzun vadeli değer ortaklıkları kuruyoruz.
+      <div className="sp-pattern-bg" />
+
+      <div className="sp-container">
+        <div className="sp-header">
+          <span className="sp-eyebrow">Strategic Partnership Model</span>
+          <h2 className="sp-title">Gökyüzü Vizyonuna Ortak Olun</h2>
+          <p style={{ color: '#9ca3af', fontSize: '18px', maxWidth: '800px', margin: '24px auto 0' }}>
+            Bütçeniz ne olursa olsun, bu projenin bir parçası olmanız bizim için kıymetli. 
+            Maddi veya ayni desteğinizle yerinizi ayırtın.
           </p>
         </div>
 
-        <div className="premium-grid">
-          {mainPackages.map((pkg, idx) => (
-            <div key={idx} className={`hero-card ${pkg.highlight ? 'highlight' : ''}`}>
-              <div className="type-badge">{pkg.type}</div>
-              <h3 className="package-name">{pkg.name}</h3>
-              <div className="package-price">{pkg.price} <span>/ Sezon</span></div>
-              <p className="package-desc">{pkg.description}</p>
+        <div className="sp-grid">
+          {packages.map(p => (
+            <div key={p.id} className={`sp-card card-${p.id}`}>
+              {p.badge && <div className="pkg-badge" style={{ background: p.color }}>{p.badge}</div>}
               
-              <div className="feature-group">
-                {pkg.features.map((feat, fidx) => (
-                  <div key={fidx} className="feature-item">
-                    <span className="check-icon">✦</span>
-                    <span>{feat}</span>
-                  </div>
-                ))}
+              <div className="visual-model">
+                <div className="model-inner" style={{ fontSize: '32px' }}>{p.model}</div>
+                <div style={{ position: 'absolute', bottom: '8px', right: '8px', fontSize: '9px', color: p.color, fontWeight: 900, opacity: 0.4 }}>M-{p.id.toUpperCase()}</div>
               </div>
+
+              <div style={{ fontSize: '10px', fontWeight: 800, color: p.color, letterSpacing: '0.15em', marginBottom: '6px' }}>{p.tier}</div>
+              <div className="sp-pkg-name" style={{ marginBottom: '12px', fontSize: '22px' }}>{p.name}</div>
               
-              <a href={`mailto:zilantec@gmail.com?subject=Kurumsal Sponsorluk: ${pkg.name}`} className="cta-button">
-                {pkg.cta}
+              <div className="pkg-price-wrap">
+                <span className="pkg-price-val">{p.price}</span>
+                <span className="pkg-price-unit">{p.id === 'kurucu' ? '' : '/ min'}</span>
+              </div>
+
+              <p className="sp-pkg-desc" style={{ fontSize: '14px', marginBottom: '24px' }}>{p.desc}</p>
+
+              <ul className="pkg-perk-list">
+                {p.perks.map((perk, i) => (
+                  <li key={i} className="pkg-perk-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={p.color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    {perk}
+                  </li>
+                ))}
+              </ul>
+
+              <a href={waLink(p.name)} target="_blank" rel="noopener noreferrer" className="pkg-action-btn" style={{ 
+                background: p.highlight ? p.color : 'rgba(255,255,255,0.05)',
+                border: p.highlight ? 'none' : '1px solid rgba(255,255,255,0.1)',
+                color: '#fff'
+              }}>
+                İletişime Geç
               </a>
             </div>
           ))}
         </div>
 
-        <div className="secondary-grid">
-          {systemPackages.map((pkg, idx) => (
-            <div key={idx} className="system-card">
-              <h4 className="system-title">{pkg.name}</h4>
-              <div className="system-price">{pkg.price}</div>
-              <span className="target-label">{pkg.target}</span>
-              <div className="feature-group">
-                {pkg.features.map((feat, fidx) => (
-                  <div key={fidx} className="feature-item" style={{ fontSize: '13px', marginBottom: '8px' }}>
-                    <span style={{ color: '#444' }}>•</span>
-                    <span>{feat}</span>
-                  </div>
-                ))}
-              </div>
+        <div className="collab-strip-premium">
+          <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap' }}>
+              <span style={{ padding: '4px 12px', borderRadius: '100px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', fontSize: '11px', fontWeight: '700' }}>Karbon Fiber</span>
+              <span style={{ padding: '4px 12px', borderRadius: '100px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', fontSize: '11px', fontWeight: '700' }}>3D Baskı</span>
+              <span style={{ padding: '4px 12px', borderRadius: '100px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', fontSize: '11px', fontWeight: '700' }}>Lojistik</span>
             </div>
-          ))}
-          
-          <div className="system-card" style={{ background: 'transparent', border: '1px dashed rgba(255,255,255,0.1)' }}>
-            <h4 className="system-title">Diğer Destekler</h4>
-            <p style={{ color: '#6b7280', fontSize: '14px', marginBottom: '20px' }}>
-              Hizmet, Ayni Yardımlar ve Mikro Destekler için özel modellerimiz mevcuttur.
+            <h4 style={{ fontSize: '26px', fontWeight: '900', color: '#fff', marginBottom: '10px' }}>Malzeme & Hizmet Ortaklığı</h4>
+            <p style={{ color: '#9ca3af', fontSize: '16px', lineHeight: '1.6', maxWidth: '700px' }}>
+              Teknik ekipman veya üretim desteğiyle de bu İHA'nın kanatlarında yer alabilirsiniz.
             </p>
-            <div style={{ display: 'grid', gap: '10px' }}>
-              {supportPackages.map((s, i) => (
-                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                  <span>{s.name}</span>
-                  <span style={{ color: 'var(--color-accent-purple)' }}>{s.price}</span>
-                </div>
-              ))}
-            </div>
           </div>
+          <a href={`https://wa.me/${WA_NUMBER}?text=Merhaba%2C%20ayni%20destek%20ve%20mentorluk%20konusunda%20görüşmek%20istiyoruz.`} target="_blank" rel="noopener noreferrer" style={{ padding: '20px 40px', borderRadius: '16px', background: '#fff', color: '#000', fontWeight: '900', textDecoration: 'none', fontSize: '16px', transition: 'all 0.4s ease' }} onMouseOver={(e) => { e.currentTarget.style.background = '#a855f7'; e.currentTarget.style.color = '#fff'; }} onMouseOut={(e) => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.color = '#000'; }}>
+            Teklif İletin
+          </a>
         </div>
 
-        <div className="corporate-contact">
-          <div className="contact-info">
-            <h4>Kurumsal İletişim ve Sunum</h4>
-            <p>Daha detaylı teknik sunum ve iş birliği modelleri için dosyamızı talep edin.</p>
+        {/* Prestigious Mosaic - REDESIGNED */}
+        <div className="mosaic-container">
+          <div style={{ textAlign: 'center' }}>
+            <span className="sp-eyebrow">Zilant Ecosystem</span>
+            <h3 style={{ fontSize: '32px', fontWeight: '900', color: '#fff' }}>İnananlar Mozaiği</h3>
+            <p style={{ color: '#6b7280', fontSize: '16px', marginTop: '12px' }}>
+              Vizyonumuza ortak olan markaların ve bireylerin dijital anıtı. Yerinizi şimdiden ayırtın.
+            </p>
           </div>
-          <a href="mailto:zilantec@gmail.com?subject=Sponsorluk Sunumu Talebi" className="inquiry-btn">
-            Detaylı Sunum İste ↗
-          </a>
+
+          <div className="mosaic-grid">
+            {/* Filled Slot */}
+            <div className="mosaic-slot" style={{ background: 'rgba(168,85,247,0.05)', borderColor: 'rgba(168,85,247,0.2)' }}>
+              <img src="/zilant-logo-color.png" alt="Zilant" style={{ width: '92%', height: '92%', objectFit: 'contain' }} />
+              <div className="slot-glow" style={{ opacity: 1 }}></div>
+            </div>
+
+            {/* Empty But Attractive Slots */}
+            {[1, 2, 3, 4, 5, 6, 7].map(i => (
+              <a key={i} href={`https://wa.me/${WA_NUMBER}?text=Merhaba%2C%20İnananlar%20Mozaiği'nde%20yerimizi%20ayırtmak%20istiyoruz.`} target="_blank" rel="noopener noreferrer" className="mosaic-slot empty">
+                <div className="slot-glow"></div>
+                <div className="slot-plus">+</div>
+                <div className="slot-text">{i % 2 === 0 ? 'Sizin Logonuz' : 'Vizyon Ortağı'}</div>
+              </a>
+            ))}
+          </div>
+
+          <div style={{ marginTop: '40px', textAlign: 'center' }}>
+            <p style={{ color: '#4b5563', fontSize: '13px', fontStyle: 'italic' }}>
+              * Her kutucuk, projemize inanmış bir markanın veya bireyin hikayesini temsil eder.
+            </p>
+          </div>
         </div>
       </div>
     </section>

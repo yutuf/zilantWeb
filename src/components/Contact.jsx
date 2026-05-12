@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Contact = () => {
+  const WA_NUMBER = "905516499710";
+  
   return (
     <section id="contact" className="section" style={{ backgroundColor: 'var(--color-bg-surface-light)' }}>
       <div className="container">
@@ -12,6 +14,15 @@ const Contact = () => {
             </p>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.25rem' }}>
+                  WhatsApp / İletişim Hattı
+                </div>
+                <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.25rem', color: '#25D366', fontWeight: '700' }}>
+                  +90 551 649 97 10
+                </a>
+              </div>
+
               <div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.25rem' }}>
                   Kurumsal E-Posta
