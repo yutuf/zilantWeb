@@ -398,7 +398,7 @@ const Sponsorship = () => {
             {/* Jersey 2 (White) - LEFT */}
             <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '0', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
               <div style={{ position: 'relative', flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                <img src="/zilantforma2.png" alt="Jersey White" style={{ width: '135%', height: 'auto', borderRadius: '0', objectFit: 'cover', transform: 'scale(1.4) translateY(0%)' }} />
+                <img src="/zilantforma2.png" alt="Jersey White" style={{ width: '135%', height: 'auto', borderRadius: '0', objectFit: 'cover', transform: 'scale(1.6) translateY(5%)' }} />
                 <div style={{ position: 'absolute', top: '15px', right: '15px', padding: '5px 10px', background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '9px', color: '#fff', fontWeight: '800', zIndex: 5 }}>BEYAZ KOLEKSİYON</div>
               </div>
               <div style={{ padding: '15px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.2)' }}>
