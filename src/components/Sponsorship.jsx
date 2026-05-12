@@ -395,14 +395,14 @@ const Sponsorship = () => {
               }
             `}</style>
 
-            {/* Jersey 1 (White) - FAR LEFT */}
+            {/* Jersey 2 (White) - FAR LEFT */}
             <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '0', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
               <div style={{ position: 'relative', flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                <img src="/zilantforma1.png" alt="Jersey Front" style={{ width: '130%', height: 'auto', borderRadius: '0', objectFit: 'cover', transform: 'scale(1.4) translateY(5%)' }} />
-                <div style={{ position: 'absolute', top: '15px', right: '15px', padding: '5px 10px', background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '9px', color: '#fff', fontWeight: '800', zIndex: 5 }}>ÖN / OMUZ</div>
+                <img src="/zilantforma2.png" alt="Jersey White" style={{ width: '135%', height: 'auto', borderRadius: '0', objectFit: 'cover', transform: 'scale(1.4) translateY(0%)' }} />
+                <div style={{ position: 'absolute', top: '15px', right: '15px', padding: '5px 10px', background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '9px', color: '#fff', fontWeight: '800', zIndex: 5 }}>SIRT / YAN</div>
               </div>
               <div style={{ padding: '15px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.2)' }}>
-                <span style={{ fontSize: '11px', fontWeight: '900', color: '#9ca3af', letterSpacing: '0.1em' }}>JERSEY FRONT</span>
+                <span style={{ fontSize: '11px', fontWeight: '900', color: '#9ca3af', letterSpacing: '0.1em' }}>JERSEY WHITE</span>
               </div>
             </div>
 
@@ -426,14 +426,14 @@ const Sponsorship = () => {
               </div>
             </div>
 
-            {/* Jersey 2 (Purple) - FAR RIGHT */}
+            {/* Jersey 1 (Purple) - FAR RIGHT */}
             <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '15px', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column' }}>
               <div style={{ position: 'relative', flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img src="/zilantforma2.png" alt="Jersey Back" style={{ width: '100%', height: 'auto', borderRadius: '15px', objectFit: 'contain' }} />
-                <div style={{ position: 'absolute', top: '15px', right: '15px', padding: '5px 10px', background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '9px', color: '#fff', fontWeight: '800' }}>SIRT / YAN</div>
+                <img src="/zilantforma1.png" alt="Jersey Purple" style={{ width: '100%', height: 'auto', borderRadius: '15px', objectFit: 'contain' }} />
+                <div style={{ position: 'absolute', top: '15px', right: '15px', padding: '5px 10px', background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '9px', color: '#fff', fontWeight: '800' }}>ÖN / OMUZ</div>
               </div>
               <div style={{ marginTop: '15px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '10px' }}>
-                <span style={{ fontSize: '11px', fontWeight: '900', color: '#9ca3af', letterSpacing: '0.1em' }}>JERSEY BACK</span>
+                <span style={{ fontSize: '11px', fontWeight: '900', color: '#9ca3af', letterSpacing: '0.1em' }}>JERSEY PURPLE</span>
               </div>
             </div>
           </div>
