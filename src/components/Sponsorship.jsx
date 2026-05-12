@@ -386,7 +386,7 @@ const Sponsorship = () => {
             <style>{`
               .branding-hud-grid {
                 display: grid;
-                grid-template-columns: 1.4fr 2.4fr 1.4fr;
+                grid-template-columns: 1.5fr 2.4fr 0.9fr;
                 gap: 24px;
                 align-items: stretch;
               }
@@ -398,7 +398,7 @@ const Sponsorship = () => {
             {/* Jersey 2 (White) - FAR LEFT */}
             <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '0', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
               <div style={{ position: 'relative', flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                <img src="/zilantforma2.png" alt="Jersey White" style={{ width: '130%', height: 'auto', borderRadius: '0', objectFit: 'cover', transform: 'scale(1.3) translateY(0%)' }} />
+                <img src="/zilantforma2.png" alt="Jersey White" style={{ width: '135%', height: 'auto', borderRadius: '0', objectFit: 'cover', transform: 'scale(1.4) translateY(0%)' }} />
                 <div style={{ position: 'absolute', top: '15px', right: '15px', padding: '5px 10px', background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '9px', color: '#fff', fontWeight: '800', zIndex: 5 }}>SIRT / YAN</div>
               </div>
               <div style={{ padding: '15px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.2)' }}>
@@ -429,7 +429,7 @@ const Sponsorship = () => {
             {/* Jersey 1 (Purple) - FAR RIGHT */}
             <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '0', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
               <div style={{ position: 'relative', flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                <img src="/zilantforma1.png" alt="Jersey Purple" style={{ width: '130%', height: 'auto', borderRadius: '0', objectFit: 'cover', transform: 'scale(1.3) translateY(0%)' }} />
+                <img src="/zilantforma1.png" alt="Jersey Purple" style={{ width: '110%', height: 'auto', borderRadius: '0', objectFit: 'cover', transform: 'scale(1.1) translateY(0%)' }} />
                 <div style={{ position: 'absolute', top: '15px', right: '15px', padding: '5px 10px', background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '9px', color: '#fff', fontWeight: '800', zIndex: 5 }}>ÖN / OMUZ</div>
               </div>
               <div style={{ padding: '15px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.2)' }}>
