@@ -397,23 +397,26 @@ const Sponsorship = () => {
 
             {/* Jersey 2 (White) - LEFT */}
             <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '0', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-              <div style={{ position: 'relative', flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+              <div style={{ position: 'relative', height: '280px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
                 <img src="/zilantforma2.png" alt="Jersey White" style={{ width: '135%', height: 'auto', borderRadius: '0', objectFit: 'cover', transform: 'scale(1.8) translateY(0%)' }} />
-                
-                {/* HUD Markers - White Jersey */}
-                <div style={{ position: 'absolute', top: '25%', right: '25%', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <div className="hud-ping" style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#fff', boxShadow: '0 0 10px #fff' }}></div>
-                  <div style={{ padding: '2px 6px', background: 'rgba(255,255,255,0.1)', border: '1px solid #fff', color: '#fff', fontSize: '8px', fontWeight: '800', borderRadius: '3px', textTransform: 'uppercase' }}>OMUZ</div>
-                </div>
-                <div style={{ position: 'absolute', top: '55%', left: '35%', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <div className="hud-ping" style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#3b82f6', boxShadow: '0 0 10px #3b82f6' }}></div>
-                  <div style={{ padding: '2px 6px', background: 'rgba(59,130,246,0.1)', border: '1px solid #3b82f6', color: '#fff', fontSize: '8px', fontWeight: '800', borderRadius: '3px', textTransform: 'uppercase' }}>GÖĞÜS</div>
-                </div>
-
                 <div style={{ position: 'absolute', top: '15px', right: '15px', padding: '5px 10px', background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '9px', color: '#fff', fontWeight: '800', zIndex: 5 }}>BEYAZ KOLEKSİYON</div>
               </div>
-              <div style={{ padding: '15px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.2)' }}>
-                <span style={{ fontSize: '11px', fontWeight: '900', color: '#fff', letterSpacing: '0.1em' }}>JERSEY WHITE</span>
+              <div style={{ padding: '20px', background: 'rgba(0,0,0,0.3)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                <div style={{ fontSize: '10px', fontWeight: '900', color: '#6b7280', letterSpacing: '0.15em', marginBottom: '12px', textAlign: 'center' }}>BRANDING ZONES</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', border: '1px solid #fff' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[01] OMUZ LOGO ALANI</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', background: '#3b82f6' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[02] ANA SPONSOR (GÖĞÜS)</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', border: '1px solid #fff' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[03] KOL / YAN PANEL</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -439,23 +442,26 @@ const Sponsorship = () => {
 
             {/* Jersey 1 (Purple) - RIGHT */}
             <div style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', borderRadius: '30px', padding: '0', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-              <div style={{ position: 'relative', flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+              <div style={{ position: 'relative', height: '280px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
                 <img src="/zilantforma1.png" alt="Jersey Purple" style={{ width: '100%', height: 'auto', borderRadius: '0', objectFit: 'cover', transform: 'scale(0.95)' }} />
-                
-                {/* HUD Markers - Purple Jersey */}
-                <div style={{ position: 'absolute', top: '40%', left: '45%', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <div className="hud-ping" style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#a855f7', boxShadow: '0 0 10px #a855f7' }}></div>
-                  <div style={{ padding: '2px 6px', background: 'rgba(168,85,247,0.1)', border: '1px solid #a855f7', color: '#fff', fontSize: '8px', fontWeight: '800', borderRadius: '3px', textTransform: 'uppercase' }}>LOGO</div>
-                </div>
-                <div style={{ position: 'absolute', bottom: '25%', right: '35%', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <div className="hud-ping" style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#fff', boxShadow: '0 0 10px #fff' }}></div>
-                  <div style={{ padding: '2px 6px', background: 'rgba(255,255,255,0.1)', border: '1px solid #fff', color: '#fff', fontSize: '8px', fontWeight: '800', borderRadius: '3px', textTransform: 'uppercase' }}>SIRT</div>
-                </div>
-
                 <div style={{ position: 'absolute', top: '15px', right: '15px', padding: '5px 10px', background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '9px', color: '#fff', fontWeight: '800', zIndex: 5 }}>MOR KOLEKSİYON</div>
               </div>
-              <div style={{ padding: '15px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.2)' }}>
-                <span style={{ fontSize: '11px', fontWeight: '900', color: '#a855f7', letterSpacing: '0.1em' }}>JERSEY PURPLE</span>
+              <div style={{ padding: '20px', background: 'rgba(0,0,0,0.3)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                <div style={{ fontSize: '10px', fontWeight: '900', color: '#6b7280', letterSpacing: '0.15em', marginBottom: '12px', textAlign: 'center' }}>BRANDING ZONES</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', background: '#a855f7' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[01] TAKIM LOGO MERKEZ</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', border: '1px solid #fff' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[02] SIRT SPONSOR ALANI</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', border: '1px solid #fff' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[03] İSİM / NUMARA ALANI</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
