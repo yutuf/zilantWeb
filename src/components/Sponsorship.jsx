@@ -62,11 +62,11 @@ const packages = [
   },
   {
     id: "kurucu",
-    tier: "STRATEJİK · PLATİN",
-    name: "Kurucu Ortak",
+    tier: "STRATEJİK PARTNER",
+    name: "Ana Sponsor",
     price: "₺90.000",
     note: "Limitli Tek Hak",
-    desc: "Vizyonumuzun en büyük ortağı. İHA'nın ismi ve ruhu markanızla sonsuza dek birleşsin.",
+    desc: "Vizyonumuzun en büyük destekçisi. Markanız, projemizin amiral gemisi olarak tüm süreçlerde en ön sırada yer alır.",
     highlight: false,
     badge: "Maksimum Yetki",
     color: "#fbbf24",
@@ -75,7 +75,7 @@ const packages = [
       "İHA ismine marka entegrasyonu",
       "Kanat üstü dev format ana logo",
       "Yarışma sonrası karbon gövde mülkiyeti",
-      "Tüm mecralarda 'Baş Sponsor' statüsü",
+      "Tüm mecralarda 'Ana Sponsor' statüsü",
     ],
   },
 ];
@@ -94,10 +94,6 @@ const Sponsorship = () => {
         @keyframes glowPulse {
           0%, 100% { box-shadow: 0 0 20px rgba(168,85,247,0.1); }
           50% { box-shadow: 0 0 40px rgba(168,85,247,0.3); }
-        }
-        @keyframes subtleFloating {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-5px); }
         }
 
         .sp-pattern-bg {
@@ -173,8 +169,32 @@ const Sponsorship = () => {
         .model-inner { opacity: 0.15; filter: grayscale(1); transition: all 0.4s ease; transform: scale(0.9); }
         .sp-card:hover .model-inner { opacity: 1; filter: grayscale(0); transform: scale(1.2); }
 
+        .morale-banner {
+          margin-top: 60px; padding: 40px; border-radius: 30px;
+          background: linear-gradient(135deg, rgba(239,68,68,0.15) 0%, rgba(249,115,22,0.05) 100%);
+          border: 1px solid rgba(239,68,68,0.3);
+          display: flex; align-items: center; justify-content: space-between; gap: 30px;
+          position: relative;
+          box-shadow: 0 0 30px rgba(239,68,68,0.05);
+          animation: glowPulseRed 4s infinite ease-in-out;
+        }
+        @keyframes glowPulseRed {
+          0%, 100% { box-shadow: 0 0 20px rgba(239,68,68,0.05); border-color: rgba(239,68,68,0.3); }
+          50% { box-shadow: 0 0 40px rgba(239,68,68,0.2); border-color: rgba(239,68,68,0.6); }
+        }
+        @media (max-width: 768px) { .morale-banner { flex-direction: column; text-align: center; padding: 30px 20px; } }
+
+        .morale-tag {
+          position: absolute; top: 0; left: 40px; transform: translateY(-50%);
+          background: #ef4444; color: #fff; font-size: 10px; font-weight: 900;
+          padding: 6px 16px; border-radius: 100px; letter-spacing: 0.1em;
+          box-shadow: 0 5px 15px rgba(239,68,68,0.4);
+          white-space: nowrap; z-index: 20;
+          border: 2px solid #080808; /* Border to cut the frame line */
+        }
+
         .collab-strip-premium {
-          margin-top: 60px; padding: 48px; border-radius: 30px;
+          margin-top: 40px; padding: 48px; border-radius: 30px;
           background: linear-gradient(90deg, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.12) 100%);
           border: 1px solid rgba(168,85,247,0.3);
           display: flex; align-items: center; justify-content: space-between; gap: 40px;
@@ -314,6 +334,80 @@ const Sponsorship = () => {
           ))}
         </div>
 
+        {/* Morale Support Banner */}
+        <div className="morale-banner">
+          <div className="morale-tag">EKİP RUHU</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+            <div style={{ 
+              fontSize: '48px', 
+              background: 'rgba(239,68,68,0.1)', 
+              width: '80px', height: '80px', 
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              borderRadius: '20px',
+              border: '1px solid rgba(239,68,68,0.2)'
+            }}>🏎️</div>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                <h4 style={{ color: '#fff', fontSize: '24px', fontWeight: '900' }}>Takıma Go-Kart Ismarla!</h4>
+                <span style={{ background: 'rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: '8px', color: '#fff', fontSize: '18px', fontWeight: '900', border: '1px solid rgba(239,68,68,0.5)' }}>₺500</span>
+              </div>
+              <p style={{ color: '#9ca3af', fontSize: '15px', lineHeight: '1.5', maxWidth: '500px' }}>
+                Yoğun Ar-Ge temposuna kısa bir mola! Bütçenize uygun bu destekle ekibin enerjisini tazeleyin.
+              </p>
+            </div>
+          </div>
+          <a href={`https://wa.me/${WA_NUMBER}?text=Merhaba%2C%20ekibe%20Go-Kart%20ısmarlayarak%20moral%20desteği%20vermek%20istiyoruz.`} target="_blank" rel="noopener noreferrer" style={{ 
+            padding: '22px 44px', 
+            borderRadius: '18px', 
+            background: '#ef4444', 
+            color: '#fff', 
+            fontWeight: '900', 
+            textDecoration: 'none', 
+            fontSize: '18px', 
+            whiteSpace: 'nowrap',
+            boxShadow: '0 10px 25px rgba(239,68,68,0.4)',
+            transition: 'all 0.3s ease'
+          }} onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 15px 35px rgba(239,68,68,0.6)'; }} onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(239,68,68,0.4)'; }}>
+            ₺500 Destek Ol
+          </a>
+        </div>
+
+        {/* Branding Mockups Section */}
+        <div style={{ marginTop: '80px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+            <span className="sp-eyebrow">Visibility & Branding</span>
+            <h3 style={{ fontSize: '32px', fontWeight: '900', color: '#fff' }}>Marka Görünürlüğü</h3>
+            <p style={{ color: '#9ca3af', fontSize: '16px', marginTop: '12px' }}>
+              Logonuzun İHA gövdesinde ve takım formalarındaki stratejik yerleşimini inceleyin.
+            </p>
+          </div>
+
+          <div className="grid grid-2" style={{ gap: '30px' }}>
+            <div className="card" style={{ padding: '20px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
+              <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', aspectRatio: '16/9' }}>
+                <img src="/uav-mockup.png" alt="UAV Branding" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', bottom: '20px', left: '20px', background: 'rgba(0,0,0,0.8)', padding: '8px 16px', borderRadius: '8px', fontSize: '12px', fontWeight: '800', color: '#a855f7', border: '1px solid rgba(168,85,247,0.3)' }}>
+                  İHA GÖVDE YERLEŞİMİ
+                </div>
+              </div>
+              <p style={{ color: '#6b7280', fontSize: '13px', marginTop: '16px', textAlign: 'center' }}>
+                Kanat üstü, kuyruk ve gövde yan panellerinde yüksek görünürlüklü marka alanları.
+              </p>
+            </div>
+
+            <div className="card" style={{ padding: '20px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
+              <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', aspectRatio: '16/9' }}>
+                <img src="/jersey-mockup.png" alt="Jersey Branding" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', bottom: '20px', left: '20px', background: 'rgba(0,0,0,0.8)', padding: '8px 16px', borderRadius: '8px', fontSize: '12px', fontWeight: '800', color: '#a855f7', border: '1px solid rgba(168,85,247,0.3)' }}>
+                  TAKIM FORMASI YERLEŞİMİ
+                </div>
+              </div>
+              <p style={{ color: '#6b7280', fontSize: '13px', marginTop: '16px', textAlign: 'center' }}>
+                Göğüs, omuz ve sırt bölgelerinde prestijli logo konumlandırması.
+              </p>
+            </div>
+          </div>
+        </div>
         <div className="collab-strip-premium">
           <div style={{ flex: 1 }}>
             <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap' }}>
@@ -331,7 +425,6 @@ const Sponsorship = () => {
           </a>
         </div>
 
-        {/* Prestigious Mosaic - REDESIGNED */}
         <div className="mosaic-container">
           <div style={{ textAlign: 'center' }}>
             <span className="sp-eyebrow">Zilant Ecosystem</span>
@@ -342,13 +435,11 @@ const Sponsorship = () => {
           </div>
 
           <div className="mosaic-grid">
-            {/* Filled Slot */}
             <div className="mosaic-slot" style={{ background: 'rgba(168,85,247,0.05)', borderColor: 'rgba(168,85,247,0.2)' }}>
               <img src="/zilant-logo-color.png" alt="Zilant" style={{ width: '98%', height: '98%', objectFit: 'contain' }} />
               <div className="slot-glow" style={{ opacity: 1 }}></div>
             </div>
 
-            {/* Empty But Attractive Slots */}
             {[1, 2, 3, 4, 5, 6, 7].map(i => (
               <a key={i} href={`https://wa.me/${WA_NUMBER}?text=Merhaba%2C%20İnananlar%20Mozaiği'nde%20yerimizi%20ayırtmak%20istiyoruz.`} target="_blank" rel="noopener noreferrer" className="mosaic-slot empty">
                 <div className="slot-glow"></div>
@@ -356,12 +447,6 @@ const Sponsorship = () => {
                 <div className="slot-text">{i % 2 === 0 ? 'Sizin Logonuz' : 'Vizyon Ortağı'}</div>
               </a>
             ))}
-          </div>
-
-          <div style={{ marginTop: '40px', textAlign: 'center' }}>
-            <p style={{ color: '#4b5563', fontSize: '13px', fontStyle: 'italic' }}>
-              * Her kutucuk, projemize inanmış bir markanın veya bireyin hikayesini temsil eder.
-            </p>
           </div>
         </div>
       </div>
