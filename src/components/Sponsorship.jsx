@@ -386,7 +386,7 @@ const Sponsorship = () => {
             <style>{`
               .branding-hud-grid {
                 display: grid;
-                grid-template-columns: 1.2fr 2.6fr 1.2fr;
+                grid-template-columns: 1.3fr 2.4fr 1.3fr;
                 gap: 24px;
                 align-items: stretch;
               }
