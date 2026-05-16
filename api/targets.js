@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       );
     `;
 
-    // ZORLA GÜNCELLEME: Yanlış dosya yüklendiği için tablodaki her şeyi SİLİYORUZ.
+    // ZORLA GÜNCELLEME: Sadece '+90' hatasını düzeltmek için veritabanını TERTEMİZ yapıyoruz.
     await sql`DELETE FROM sponsorship_targets;`;
     
     const filePath = path.join(process.cwd(), 'companies_with_phones.json');
