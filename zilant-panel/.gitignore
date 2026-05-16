@@ -8,8 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-zilant-panel/node_modules
-zilant-panel-backend/node_modules
 dist
 dist-ssr
 *.local
