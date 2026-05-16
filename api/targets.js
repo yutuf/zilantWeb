@@ -1,11 +1,9 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { sql } from '@vercel/postgres';
+import { readFileSync } from 'fs';
 import path from 'path';
 
-export default function handler(req, res) {
-  // AdBlocker'ı aşmak için masum isimler kullanıyoruz
-  const filePath = path.join(process.cwd(), 'companies_with_phones.json');
-  
-  // CORS ayarları (Vercel bunu otomatik halletse de manuel eklemek güvenlidir)
+export default async function handler(req, res) {
+  // CORS ayarları
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -20,29 +18,56 @@ export default function handler(req, res) {
   }
 
   try {
-    const fileData = readFileSync(filePath, 'utf8');
-    let companies = JSON.parse(fileData);
+    // 1. Tabloyu oluştur (Eğer yoksa)
+    await sql`
+      CREATE TABLE IF NOT EXISTS sponsorship_targets (
+        id SERIAL PRIMARY KEY,
+        external_id INTEGER UNIQUE,
+        name TEXT,
+        email TEXT,
+        sector TEXT,
+        phone TEXT,
+        status TEXT,
+        notes TEXT
+      );
+    `;
 
-    if (req.method === 'GET') {
-      return res.status(200).json(companies);
+    // 2. Eğer tablo boşsa JSON'dan verileri çek ve bas (Seed)
+    const { rows: existingRows } = await sql`SELECT count(*) FROM sponsorship_targets;`;
+    if (parseInt(existingRows[0].count) === 0) {
+      const filePath = path.join(process.cwd(), 'companies_with_phones.json');
+      const companies = JSON.parse(readFileSync(filePath, 'utf8'));
+      
+      for (const c of companies) {
+        await sql`
+          INSERT INTO sponsorship_targets (external_id, name, email, sector, phone, status, notes)
+          VALUES (${c.id}, ${c.name}, ${c.email}, ${c.sector}, ${c.phone}, ${c.status}, ${c.notes})
+          ON CONFLICT (external_id) DO NOTHING;
+        `;
+      }
     }
 
+    // 3. GET İşlemi
+    if (req.method === 'GET') {
+      const { rows } = await sql`SELECT * FROM sponsorship_targets ORDER BY external_id ASC;`;
+      // Frontend'deki id yapısına uydurmak için
+      const formattedRows = rows.map(r => ({ ...r, id: r.external_id }));
+      return res.status(200).json(formattedRows);
+    }
+
+    // 4. PUT İşlemi (Güncelleme)
     if (req.method === 'PUT') {
       const { id, status, notes } = req.body;
-      const index = companies.findIndex(c => c.id === parseInt(id));
-      
-      if (index > -1) {
-        companies[index].status = status;
-        companies[index].notes = notes;
-        
-        // NOT: Vercel'de bu yazma işlemi sadece geçici diskte (tmp) olur.
-        // Kalıcı olması için bir DB (Postgres/KV) şarttır.
-        // Ama şimdilik hata vermemesi için işlemi yapıyoruz.
-        return res.status(200).json({ message: 'Güncellendi (Geçici)', company: companies[index] });
-      }
-      return res.status(404).json({ message: 'Bulunamadı' });
+      await sql`
+        UPDATE sponsorship_targets 
+        SET status = ${status}, notes = ${notes} 
+        WHERE external_id = ${id};
+      `;
+      return res.status(200).json({ message: 'Başarıyla güncellendi' });
     }
+
   } catch (error) {
+    console.error('Database Error:', error);
     return res.status(500).json({ error: error.message });
   }
 }
