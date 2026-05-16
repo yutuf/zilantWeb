@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const WA_NUMBER = "905516499710";
-const MAIL = "zilantec@gmail.com";
+const MAIL = "sponsor@zilant.one";
 
 const waLink = (pkg) =>
   `https://wa.me/${WA_NUMBER}?text=Merhaba%2C%20Zilant%20UAV%20Team'in%20%22${encodeURIComponent(pkg)}%22%20modeline%20destek%20vermek%20istiyorum.`;
@@ -36,10 +36,10 @@ const packages = [
     color: "#a855f7",
     model: "⚙️",
     perks: [
-      "Forma sırtında isim/logo",
+      "Forma sırt alt kısmında logo",
+      "İHA kanat köşesinde logo alanı",
       "Web sitesinde kurumsal profil",
       "Instagram özel teşekkür story'si",
-      "Ekip bültenlerine abonelik",
     ],
   },
   {
@@ -54,10 +54,10 @@ const packages = [
     color: "#3b82f6",
     model: "✈️",
     perks: [
-      "Fuselage yan panel ana logo",
-      "Forma ön yüz (göğüs) logo",
-      "Teknik raporlarda marka bahsi",
-      "Sektörel rakip engelleme taahhüdü",
+      "Forma sırt orta kısmında büyük logo",
+      "İHA gövde yanında marka logosu",
+      "Sosyal medyada ortak işbirliği duyurusu",
+      "Teknik süreç paylaşımlarında marka bahsi",
     ],
   },
   {
@@ -72,9 +72,9 @@ const packages = [
     color: "#fbbf24",
     model: "👑",
     perks: [
-      "İHA ismine marka entegrasyonu",
-      "Kanat üstü dev format ana logo",
-      "Yarışma sonrası karbon gövde mülkiyeti",
+      "Forma omuz alanında ana sponsor logosu",
+      "İHA kanat üstü dev format ana logo",
+      "Yarışma sonrası gövde mülkiyeti",
       "Tüm mecralarda 'Ana Sponsor' statüsü",
     ],
   },
@@ -406,15 +406,15 @@ const Sponsorship = () => {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{ width: '6px', height: '6px', border: '1px solid #fff' }}></div>
-                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[01] OMUZ LOGO ALANI</span>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[01] ZİLANT / TAKIM ALANI (GÖĞÜS)</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', background: '#fbbf24' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[02] ANA SPONSOR (OMUZ)</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{ width: '6px', height: '6px', background: '#3b82f6' }}></div>
-                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[02] ANA SPONSOR (GÖĞÜS)</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '6px', height: '6px', border: '1px solid #fff' }}></div>
-                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[03] KOL / YAN PANEL</span>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[03] SİSTEM ORTAĞI (ÖN ALT KISIM)</span>
                   </div>
                 </div>
               </div>
@@ -432,20 +432,20 @@ const Sponsorship = () => {
                 <div style={{ fontSize: '10px', fontWeight: '900', color: '#a855f7', letterSpacing: '0.15em', marginBottom: '12px', textAlign: 'center' }}>UAV BRANDING ZONES</div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', background: '#fbbf24' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[01] ANA SPONSOR (KANAT ÜSTÜ)</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{ width: '6px', height: '6px', background: '#a855f7' }}></div>
-                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[01] KANAT ÜST YÜZEY</span>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[02] SAHA ORTAĞI (KANAT KÖŞESİ)</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '6px', height: '6px', border: '1px solid #a855f7' }}></div>
-                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[02] GÖVDE YAN PANEL</span>
+                    <div style={{ width: '6px', height: '6px', background: '#3b82f6' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[03] SİSTEM ORTAĞI (GÖVDE YAN)</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '6px', height: '6px', border: '1px solid #a855f7' }}></div>
-                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[03] KUYRUK / STABİLİZER</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '6px', height: '6px', background: '#fff' }}></div>
-                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[04] BURUN / AVİYONİK</span>
+                    <div style={{ width: '6px', height: '6px', border: '1px solid #fff' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[04] KUYRUK / BURUN ALANLARI</span>
                   </div>
                 </div>
               </div>
@@ -461,12 +461,12 @@ const Sponsorship = () => {
                 <div style={{ fontSize: '10px', fontWeight: '900', color: '#6b7280', letterSpacing: '0.15em', marginBottom: '12px', textAlign: 'center' }}>BRANDING ZONES</div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '6px', height: '6px', background: '#a855f7' }}></div>
-                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[01] TAKIM LOGO MERKEZ</span>
+                    <div style={{ width: '6px', height: '6px', background: '#3b82f6' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[01] SİSTEM ORTAĞI (SIRT ORTA KISIM)</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '6px', height: '6px', border: '1px solid #fff' }}></div>
-                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[02] SIRT SPONSOR ALANI</span>
+                    <div style={{ width: '6px', height: '6px', background: '#a855f7' }}></div>
+                    <span style={{ fontSize: '9px', color: '#d1d5db', fontWeight: '600' }}>[02] SAHA ORTAĞI (SIRT ALT KISIM)</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{ width: '6px', height: '6px', border: '1px solid #fff' }}></div>

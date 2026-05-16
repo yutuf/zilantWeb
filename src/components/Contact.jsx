@@ -71,9 +71,9 @@ const Contact = () => {
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-              <a href="mailto:zilantec@gmail.com" className="contact-method-card">
+              <a href="mailto:sponsor@zilant.one" className="contact-method-card">
                 <div style={{ fontSize: '11px', color: '#a855f7', fontWeight: '800', marginBottom: '10px' }}>E-POSTA</div>
-                <div style={{ fontSize: '14px', color: '#fff', fontWeight: '600' }}>zilantec@gmail.com</div>
+                <div style={{ fontSize: '14px', color: '#fff', fontWeight: '600' }}>sponsor@zilant.one</div>
               </a>
               <a href="https://linkedin.com/company/zilantuav" target="_blank" rel="noopener noreferrer" className="contact-method-card">
                 <div style={{ fontSize: '11px', color: '#a855f7', fontWeight: '800', marginBottom: '10px' }}>LINKEDIN</div>
