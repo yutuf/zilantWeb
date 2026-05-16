@@ -30,11 +30,14 @@ export default async function handler(req, res) {
       );
     `;
 
-    // ZORLA GÜNCELLEME: Sadece '+90' hatasını düzeltmek için veritabanını TERTEMİZ yapıyoruz.
-    await sql`DELETE FROM sponsorship_targets;`;
+    // ZORLA GÜNCELLEME KALDIRILDI: Artık veritabanı sıfırlanmayacak, veriler kalıcı olacak.
+    // await sql`DELETE FROM sponsorship_targets;`;
     
-    const filePath = path.join(process.cwd(), 'companies_with_phones.json');
-    const companies = JSON.parse(readFileSync(filePath, 'utf8'));
+    // Sadece tablo ilk kez oluşturulduğunda veya tamamen boşsa verileri çekmesi için koruma:
+    const { rows: countRows } = await sql`SELECT count(*) FROM sponsorship_targets;`;
+    if (parseInt(countRows[0].count) === 0) {
+      const filePath = path.join(process.cwd(), 'companies_with_phones.json');
+      const companies = JSON.parse(readFileSync(filePath, 'utf8'));
     
     for (const c of companies) {
       await sql`
