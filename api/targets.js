@@ -30,10 +30,10 @@ export default async function handler(req, res) {
       );
     `;
 
-    // ZORLA GÜNCELLEME: Eğer veri sayısı 230'dan azsa (eski hatalı liste), temizle ve yenisini bas
+    // ZORLA GÜNCELLEME: Eğer veri sayısı 233'ten azsa (eski liste), temizle ve yenisini bas
     const { rows: countRows } = await sql`SELECT count(*) FROM sponsorship_targets;`;
-    if (parseInt(countRows[0].count) < 230) {
-      console.log("Eski veri tespit edildi, temizleniyor...");
+    if (parseInt(countRows[0].count) < 233) {
+      console.log("Daha güncel veri tespit edildi, yenileniyor...");
       await sql`DELETE FROM sponsorship_targets;`;
       
       const filePath = path.join(process.cwd(), 'companies_with_phones.json');
