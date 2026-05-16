@@ -39,12 +39,13 @@ export default async function handler(req, res) {
       const filePath = path.join(process.cwd(), 'companies_with_phones.json');
       const companies = JSON.parse(readFileSync(filePath, 'utf8'));
     
-    for (const c of companies) {
-      await sql`
-        INSERT INTO sponsorship_targets (external_id, name, email, sector, phone, status, notes)
-        VALUES (${c.id}, ${c.name}, ${c.email}, ${c.sector}, ${c.phone}, ${c.status}, ${c.notes})
-        ON CONFLICT (external_id) DO NOTHING;
-      `;
+      for (const c of companies) {
+        await sql`
+          INSERT INTO sponsorship_targets (external_id, name, email, sector, phone, status, notes)
+          VALUES (${c.id}, ${c.name}, ${c.email}, ${c.sector}, ${c.phone}, ${c.status}, ${c.notes})
+          ON CONFLICT (external_id) DO NOTHING;
+        `;
+      }
     }
 
     if (req.method === 'GET') {
