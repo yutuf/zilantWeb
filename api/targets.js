@@ -3,7 +3,6 @@ import { readFileSync } from 'fs';
 import path from 'path';
 
 export default async function handler(req, res) {
-  // CORS ayarları
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -18,7 +17,6 @@ export default async function handler(req, res) {
   }
 
   try {
-    // 1. Tabloyu oluştur (Eğer yoksa)
     await sql`
       CREATE TABLE IF NOT EXISTS sponsorship_targets (
         id SERIAL PRIMARY KEY,
@@ -32,9 +30,12 @@ export default async function handler(req, res) {
       );
     `;
 
-    // 2. Eğer tablo boşsa JSON'dan verileri çek ve bas (Seed)
-    const { rows: existingRows } = await sql`SELECT count(*) FROM sponsorship_targets;`;
-    if (parseInt(existingRows[0].count) === 0) {
+    // ZORLA GÜNCELLEME: Eğer veri sayısı 230'dan azsa (eski hatalı liste), temizle ve yenisini bas
+    const { rows: countRows } = await sql`SELECT count(*) FROM sponsorship_targets;`;
+    if (parseInt(countRows[0].count) < 230) {
+      console.log("Eski veri tespit edildi, temizleniyor...");
+      await sql`DELETE FROM sponsorship_targets;`;
+      
       const filePath = path.join(process.cwd(), 'companies_with_phones.json');
       const companies = JSON.parse(readFileSync(filePath, 'utf8'));
       
@@ -47,15 +48,12 @@ export default async function handler(req, res) {
       }
     }
 
-    // 3. GET İşlemi
     if (req.method === 'GET') {
       const { rows } = await sql`SELECT * FROM sponsorship_targets ORDER BY external_id ASC;`;
-      // Frontend'deki id yapısına uydurmak için
       const formattedRows = rows.map(r => ({ ...r, id: r.external_id }));
       return res.status(200).json(formattedRows);
     }
 
-    // 4. PUT İşlemi (Güncelleme)
     if (req.method === 'PUT') {
       const { id, status, notes } = req.body;
       await sql`
