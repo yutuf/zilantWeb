@@ -14,7 +14,7 @@ import {
 
 const API_BASE = window.location.hostname === 'localhost' 
   ? "http://localhost:3001/api" 
-  : "https://panel.zilant.one/api";
+  : "https://zilant.one/api"; // Ana domain üzerinden API'ye erişim
 
 const TEAM_PASSWORD = "zilant2026";
 
@@ -27,7 +27,7 @@ const STATUS_COLORS = {
   "Olumlu": "#22c55e"
 };
 
-const App = () => {
+const CallPanel = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem('isZilantAuth') === 'true');
   const [passwordInput, setPasswordInput] = useState("");
   const [loginError, setLoginError] = useState(false);
@@ -362,4 +362,4 @@ Uygunsanız projemizin detaylarını içeren bir tanıtım dosyası iletmek ve k
   );
 };
 
-export default App;
+export default CallPanel;
