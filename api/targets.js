@@ -30,22 +30,18 @@ export default async function handler(req, res) {
       );
     `;
 
-    // ZORLA GÜNCELLEME: Eğer veri sayısı 233'ten azsa (eski liste), temizle ve yenisini bas
-    const { rows: countRows } = await sql`SELECT count(*) FROM sponsorship_targets;`;
-    if (parseInt(countRows[0].count) < 233) {
-      console.log("Daha güncel veri tespit edildi, yenileniyor...");
-      await sql`DELETE FROM sponsorship_targets;`;
-      
-      const filePath = path.join(process.cwd(), 'companies_with_phones.json');
-      const companies = JSON.parse(readFileSync(filePath, 'utf8'));
-      
-      for (const c of companies) {
-        await sql`
-          INSERT INTO sponsorship_targets (external_id, name, email, sector, phone, status, notes)
-          VALUES (${c.id}, ${c.name}, ${c.email}, ${c.sector}, ${c.phone}, ${c.status}, ${c.notes})
-          ON CONFLICT (external_id) DO NOTHING;
-        `;
-      }
+    // ZORLA GÜNCELLEME: Yanlış dosya yüklendiği için tablodaki her şeyi SİLİYORUZ.
+    await sql`DELETE FROM sponsorship_targets;`;
+    
+    const filePath = path.join(process.cwd(), 'companies_with_phones.json');
+    const companies = JSON.parse(readFileSync(filePath, 'utf8'));
+    
+    for (const c of companies) {
+      await sql`
+        INSERT INTO sponsorship_targets (external_id, name, email, sector, phone, status, notes)
+        VALUES (${c.id}, ${c.name}, ${c.email}, ${c.sector}, ${c.phone}, ${c.status}, ${c.notes})
+        ON CONFLICT (external_id) DO NOTHING;
+      `;
     }
 
     if (req.method === 'GET') {
