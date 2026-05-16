@@ -12,9 +12,8 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-const API_BASE = window.location.hostname === 'localhost' 
-  ? "http://localhost:3001/api" 
-  : "https://zilant.one/api"; // Ana domain üzerinden API'ye erişim
+// Vercel Serverless API yolu (AdBlocker'ı aşmak için masum isim)
+const API_BASE = "/api";
 
 const TEAM_PASSWORD = "zilant2026";
 
@@ -47,12 +46,15 @@ const CallPanel = () => {
 
   const fetchCompanies = async () => {
     try {
-      const res = await fetch(`${API_BASE}/companies`);
+      const res = await fetch(`${API_BASE}/targets`);
       const data = await res.json();
-      setCompanies(data);
+      if (Array.isArray(data)) {
+        setCompanies(data);
+      }
       setLoading(false);
     } catch (err) {
       console.error("Error fetching companies:", err);
+      setLoading(false);
     }
   };
 
@@ -69,10 +71,10 @@ const CallPanel = () => {
 
   const updateStatus = async (id, status, notes) => {
     try {
-      await fetch(`${API_BASE}/companies/${id}`, {
+      await fetch(`${API_BASE}/targets`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status, notes })
+        body: JSON.stringify({ id, status, notes })
       });
       fetchCompanies();
       if (activeCompany && activeCompany.id === id) {
